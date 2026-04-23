@@ -6,7 +6,7 @@ marked.setOptions({
 });
 
 export function hashColor(input = '') {
-  const palette = ['#B86A2D', '#7B61FF', '#386BF6', '#0EA57A', '#C35D93', '#D27F33'];
+  const palette = ['#8B5A2B', '#A66A3F', '#6E4B2E', '#C38A57', '#7F5539', '#B77A43'];
   const hash = [...input].reduce((acc, char) => acc + char.charCodeAt(0), 0);
   return palette[hash % palette.length];
 }

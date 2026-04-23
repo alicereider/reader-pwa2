@@ -64,16 +64,8 @@ export default function FlowReader({
     const handleScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        if (!isPaginated && isTouchDevice) {
-          const nextScroll = container.scrollTop;
-          const delta = nextScroll - lastScrollRef.current;
-          if (Math.abs(delta) > 14) {
-            onViewportGesture?.({
-              type: 'scroll-direction',
-              direction: delta > 0 ? 'down' : 'up'
-            });
-            lastScrollRef.current = nextScroll;
-          }
+        if (!isPaginated) {
+          lastScrollRef.current = container.scrollTop;
         }
         emitProgress();
       });
@@ -181,7 +173,7 @@ export default function FlowReader({
 
   return (
     <section
-      className={`flow-reader ${readingMode === 'paginated' ? 'flow-reader--paginated' : 'flow-reader--scroll'}`}
+      className={`flow-reader ${readingMode === 'paginated' ? 'flow-reader--paginated' : 'flow-reader--scroll'} ${isTouchDevice ? 'flow-reader--touch' : ''}`}
       ref={containerRef}
     >
       <article className="reader-prose" dangerouslySetInnerHTML={{ __html: book.contentHtml }} />

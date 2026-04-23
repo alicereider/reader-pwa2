@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const defaultSettings = {
-  theme: 'dark',
+  theme: 'wood',
   fontFamily: 'literata',
   fontSize: 18,
   lineHeight: 1.7,
@@ -12,6 +12,22 @@ const defaultSettings = {
 };
 
 const themeMap = {
+  wood: {
+    '--reader-bg': '#f1e4cf',
+    '--reader-fg': '#231810',
+    '--reader-muted': '#71553d',
+    '--surface': 'rgba(38, 27, 20, 0.82)',
+    '--surface-strong': 'rgba(44, 31, 23, 0.94)',
+    '--surface-border': 'rgba(255, 244, 232, 0.08)',
+    '--text': '#f6efe6',
+    '--muted': '#cab8a5',
+    '--accent': '#9b6337',
+    '--accent-2': '#d3a26f',
+    '--button-dark-bg': '#13100d',
+    '--button-dark-text': '#ffffff',
+    '--button-light-bg': '#f4ecdf',
+    '--button-light-text': '#1f1710'
+  },
   light: {
     '--reader-bg': '#f6f2ea',
     '--reader-fg': '#211d17',

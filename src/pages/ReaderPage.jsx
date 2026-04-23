@@ -23,6 +23,7 @@ export default function ReaderPage() {
   const persistTimeoutRef = useRef(0);
   const chromeTimeoutRef = useRef(0);
   const toastTimeoutRef = useRef(0);
+  const lastUiProgressRef = useRef({ progress: 0, at: 0 });
 
   const hideChromeLater = useCallback((delay = 2200) => {
     clearTimeout(chromeTimeoutRef.current);
@@ -113,7 +114,18 @@ export default function ReaderPage() {
         progress: nextProgress
       };
 
-      setReaderProgress(nextProgress);
+      const now = Date.now();
+      const lastUi = lastUiProgressRef.current;
+      const shouldRefreshUi =
+        Math.abs(nextProgress - lastUi.progress) >= 0.008 ||
+        now - lastUi.at >= 140 ||
+        nextProgress <= 0.001 ||
+        nextProgress >= 0.999;
+
+      if (shouldRefreshUi) {
+        setReaderProgress(nextProgress);
+        lastUiProgressRef.current = { progress: nextProgress, at: now };
+      }
 
       if (patch.currentLocation) {
         setBook((prev) => (prev ? { ...prev, currentLocation: patch.currentLocation } : prev));
@@ -136,13 +148,6 @@ export default function ReaderPage() {
     }
 
     if (payload.type === 'scroll-direction') {
-      if (payload.direction === 'up') {
-        revealChrome();
-      }
-      if (payload.direction === 'down') {
-        clearTimeout(chromeTimeoutRef.current);
-        if (isTouchDevice) setShowChrome(false);
-      }
       return;
     }
 
