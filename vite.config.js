@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: 'Velvet Reader',
         short_name: 'Velvet',
-        description: 'Красивая офлайн‑PWA‑читалка для Android.',
+        description: 'Красивая офлайн-PWA-читалка для Android.',
         theme_color: '#0b0d12',
         background_color: '#0b0d12',
         display: 'standalone',
