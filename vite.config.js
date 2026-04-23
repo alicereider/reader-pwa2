@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: '/reader-pwa/',
+  base: '/reader-pwa2/',
   plugins: [
     react(),
     VitePWA({
@@ -12,13 +12,13 @@ export default defineConfig({
       manifest: {
         name: 'Velvet Reader',
         short_name: 'Velvet',
-        description: 'Красивая офлайн‑PWA‑читалка для Android.',
+        description: 'Красивая офлайн-PWA-читалка для Android.',
         theme_color: '#0b0d12',
         background_color: '#0b0d12',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/reader-pwa/',
-        scope: '/reader-pwa/',
+start_url: '/reader-pwa2/',
+scope: '/reader-pwa2/',
         lang: 'ru',
         icons: [
           {

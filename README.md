@@ -68,7 +68,7 @@ npm run preview
 
 ## GitHub Pages
 Репозиторий уже подготовлен под GitHub Pages для адреса:
-`https://alicereider.github.io/reader-pwa/`
+`https://alicereider.github.io/reader-pwa2/`
 
 Что нужно сделать:
 1. Загрузить в репозиторий **распакованные файлы проекта**, а не zip.
