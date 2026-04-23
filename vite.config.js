@@ -17,8 +17,8 @@ export default defineConfig({
         background_color: '#0b0d12',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/reader-pwa/',
-        scope: '/reader-pwa/',
+start_url: '/reader-pwa2/',
+scope: '/reader-pwa2/',
         lang: 'ru',
         icons: [
           {
